@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from .models import employees_db
-import psql_methods
+from . import psql_methods
 
 
 def employee_detail(request, pk):
