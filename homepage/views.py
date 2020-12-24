@@ -20,6 +20,7 @@ def index(request):
 
     if request.method == 'POST':
         cnt_employees = request.POST['cnt_employees']
+        cnt_employees = int(cnt_employees)
         print(type(cnt_employees) , cnt_employees)
         
 
