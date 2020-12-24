@@ -1,1 +1,1 @@
-web: python manage.py runserver
+web: gunicorn xsolla-new-year.wsgi -b 0.0.0.0:$PORT
