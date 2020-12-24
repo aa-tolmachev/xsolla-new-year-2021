@@ -18,7 +18,7 @@ numpy
 Flask-Cors==3.0.8
 
 
-BeautifulSoup==3.2.1
+#BeautifulSoup==3.2.1
 Django==1.4
 gunicorn==0.14.2
 python-dateutil==1.5
