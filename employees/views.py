@@ -24,7 +24,7 @@ def prev_winners(request):
         prev_winners += f'<p  style="font-size:30px;">'
 
 
-        for winner in result['fetch']:
+        for winner in prev_employees_arr:
             prev_w = winner[0]
             win_round = winner[1]
             
