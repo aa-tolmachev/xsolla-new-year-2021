@@ -47,7 +47,7 @@ def index(request):
 
 
             max_round = psql_methods.max_round()
-            new_round = max_round
+            new_round = max_round + 1
             
 
             round_employees = list(set(all_employees_arr) - set(prev_employees_arr))
@@ -57,7 +57,7 @@ def index(request):
 
             round_winners = round_employees[:cnt_employees]
             insert_status = psql_methods.insert_round_resunt(new_round , round_winners)
-            max_round = psql_methods.max_round()
+
             print('=================ROUND WINNERS',insert_status, round_winners)
 
             winners += f'<p><b>ПОБЕДИТЕЛИ РАУНДА!!!!</b></p>'
