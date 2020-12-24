@@ -1,25 +1,8 @@
 from django.shortcuts import render
 from employees.models import employees_db
-import psycopg2
+from employees import psql_methods
 
 all_employees_arr = [emp['name'] for emp in employees_db]
-
-#heroku PSQL
-def PSQL_heroku_keys():
-    dbname = 'dbr3jigs1op5oo'
-    port = '5432'
-    user = 'muwrkppfuyldmk'
-    host = 'ec2-54-227-252-202.compute-1.amazonaws.com'
-    password = '4c4eabfcaf92f7289ccfc1a314d04a3c3806db72b1bf12fd5f0f40c410b14355'
-
-    PSQL_heroku_keys = {'dbname' : dbname
-                        , 'port' : port
-                        , 'user' : user
-                        , 'host' : host
-                        , 'password' : password
-                        }
-
-    return PSQL_heroku_keys
 
 
 def index(request):
@@ -50,6 +33,12 @@ def index(request):
 
         if cnt_employees > 25:
             bad_context = "Оооооочень много счастливчиков"
+
+
+        max_round = psql_methods.max_round()
+        prev_employees_arr = psql_methods.prev_employees()
+
+        print(max_round , prev_employees_arr)
 
 
 
