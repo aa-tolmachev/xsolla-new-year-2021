@@ -1,6 +1,5 @@
 from django.shortcuts import render
 from employees.models import employees_db
-import pandas as pd
 
 employees_arr = [emp['name'] for emp in employees_db]
 
