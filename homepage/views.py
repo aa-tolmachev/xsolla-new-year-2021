@@ -1,12 +1,21 @@
 from django.shortcuts import render
 from employees.models import employees_db
+import pandas as pd
+
+employees_df = pd.DataFrame(employees_db)
+
 
 def index(request):
+
+    global employees_df
+    print(employees_df.shape)
 
     prev_employees = ''
     cnt_employees = ''
     new_employees = ''
     employees = ''
+
+    bad_context = ''
 
     '''
     for i in range(len(employees_db)):
@@ -21,8 +30,12 @@ def index(request):
     if request.method == 'POST':
         cnt_employees = request.POST['cnt_employees']
         cnt_employees = int(cnt_employees)
-        print(type(cnt_employees) , cnt_employees)
-        
+
+        if cnt_employees > 25:
+            bad_context = "Оооооочень много счастливчиков"
+
+
+
 
 
 
@@ -31,5 +44,6 @@ def index(request):
         'prev_employees': prev_employees,
         'cnt_employees': cnt_employees,
         'new_employees': new_employees,
+        'bad_context': bad_context,
     }
     return render(request, 'homepage/index.html', context)
