@@ -19,8 +19,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'homepage',
-    'icecream',
-    'anfisa',
+    'employees',
+
 ]
 
 MIDDLEWARE = [
