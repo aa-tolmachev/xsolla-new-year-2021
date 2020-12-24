@@ -58,9 +58,9 @@ def index(request):
             round_winners = round_employees[:cnt_employees]
 
             winners += f'<p><b>ПОБЕДИТЕЛИ РАУНДА!!!!</b></p>'
-            winners += f'<p  style="font-size:20px;">'
+            winners += f'<p  style="font-size:40px;">'
             for winner in round_winners:
-                winners += f'{winner}<br>'
+                winners += f'<b>{winner}</b><br>'
             winners += f'</p>'
 
 
