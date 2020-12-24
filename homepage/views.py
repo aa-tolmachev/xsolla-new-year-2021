@@ -35,7 +35,7 @@ def index(request):
         prev_winners = f'<a href="employees/prev_winners/">список всех победителей</a>'
     
 
-
+    '''
     if request.method == 'POST':
         cnt_employees = request.POST['cnt_employees']
         cnt_employees = int(cnt_employees)
@@ -65,6 +65,7 @@ def index(request):
             for winner in round_winners:
                 winners += f'<b>{winner}</b><br>'
             winners += f'</p>'
+    '''
 
 
 
