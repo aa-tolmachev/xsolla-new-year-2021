@@ -26,9 +26,11 @@ def index(request):
 
     
     if len(prev_employees_arr) > 0:
-        prev_winners += f'<p><НАШИ СЧАСТЛИВЧИКИ</p> <br>'
+        prev_winners += f'<p>НАШИ СЧАСТЛИВЧИКИ</p>'
+        prev_winners += f'<p>'
         for prev_w in prev_employees_arr:
-            prev_winners += f'<p>{prev_w}</p> <br>'
+            prev_winners += f'{prev_w}<br>'
+        prev_winners += f'</p>'
     
 
 
@@ -36,24 +38,28 @@ def index(request):
         cnt_employees = request.POST['cnt_employees']
         cnt_employees = int(cnt_employees)
 
-        if cnt_employees > 25:
-            bad_context = "Оооооочень много счастливчиков"
+        if cnt_employees > 0
+
+            if cnt_employees > 25:
+                bad_context = "Оооооочень много счастливчиков"
 
 
-        max_round = psql_methods.max_round()
-        new_round = max_round
-        
+            max_round = psql_methods.max_round()
+            new_round = max_round
+            
 
-        round_employees = list(set(all_employees_arr) - set(prev_employees_arr))
+            round_employees = list(set(all_employees_arr) - set(prev_employees_arr))
 
-        for i in range(10):
-            random.shuffle(round_employees)
+            for i in range(10):
+                random.shuffle(round_employees)
 
-        round_winners = round_employees[:cnt_employees]
+            round_winners = round_employees[:cnt_employees]
 
-        for winner in round_winners:
-            winners += f'<p><ПОБЕДИТЕЛИ РАУНДА!!!!/p> <br>'
-            winners += f'<p><{winner}/p> <br>'
+            winners += f'<p><b>ПОБЕДИТЕЛИ РАУНДА!!!!</b></p>'
+            winners += f'<p>'
+            for winner in round_winners:
+                winners += f'{winner}<br>'
+            winners += f'</p>'
 
 
 
