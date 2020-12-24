@@ -70,6 +70,29 @@ def prev_employees():
 
     return prev_employees_arr
 
+
+#Получившие подарок в разрезе раунодв
+def prev_employees_per_round():
+
+    
+    PSQL_heroku_keys = PSQL_heroku_keys_dict()
+
+    #создаем подключение к PSQL
+    conn = psycopg2.connect("dbname='%(dbname)s' port='%(port)s' user='%(user)s' host='%(host)s' password='%(password)s'" % PSQL_heroku_keys)
+
+    # создаем запрос
+    cur = conn.cursor()
+    #проверяем, что пользователя ранее не было
+    cur.execute("select name , round  from public.xsolla2021 where round > 0 order by round")
+
+    result = {'fetch' : cur.fetchall() , 'desc' : cur.description}
+
+    cur.close()
+    conn.close()
+
+
+    return result
+
 #записать победителей
 def insert_round_resunt(round_num , round_winners):
 

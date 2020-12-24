@@ -21,7 +21,7 @@ def prev_winners(request):
 
     if len(prev_employees_arr) > 0:
         
-        prev_winners += f'<p>НАШИ СЧАСТЛИВЧИКИ</p>'
+        
         prev_winners += f'<p  style="font-size:40px;">'
         for prev_w in prev_employees_arr:
             if prev_w != 'test':
