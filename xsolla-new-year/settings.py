@@ -57,7 +57,7 @@ DATABASES = {
     }
 }
 
-ROOT_URLCONF = 'anfisa4friends.urls'
+ROOT_URLCONF = 'xsolla-new-year.urls'
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.2/topics/i18n/
