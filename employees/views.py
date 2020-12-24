@@ -26,7 +26,7 @@ def prev_winners(request):
 
         for winner in prev_employees_arr:
             prev_w = winner[0]
-            win_round = int(winner[1])
+            win_round = winner[1]
             
             if win_round > last_round:
                 last_round = win_round

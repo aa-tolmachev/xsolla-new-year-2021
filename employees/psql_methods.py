@@ -91,7 +91,7 @@ def prev_employees_per_round():
     conn.close()
 
 
-    return result
+    return result['fetch']
 
 #записать победителей
 def insert_round_resunt(round_num , round_winners):
