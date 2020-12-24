@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+      <meta charset="UTF-8">
+  </head>
+  <body>
+      <h1>!!!! Xsolla New Year Random Gift Machine !!!!</h1>
+       <img src="https://media.giphy.com/media/y0NFayaBeiWEU/giphy.gif">
+       <br>
+      <p>
+        {{ prev_employees }}
+      </p>
+
+
+      <form action="/" method="post">
+
+        <h2>Выберите сотрудника</h2>
+          {{ employees|safe }}
+        <br>
+        <input type="submit" value="Узнать детали">
+      </form>
+
+  </body>
+</html>
