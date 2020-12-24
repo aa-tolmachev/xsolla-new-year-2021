@@ -2,13 +2,13 @@ from django.shortcuts import render
 from employees.models import employees_db
 import pandas as pd
 
-employees_df = pd.DataFrame(employees_db)
+employees_arr = [emp['name'] for emp in employees_db]
 
 
 def index(request):
 
-    global employees_df
-    print(employees_df.shape)
+    global employees_arr
+    print(len(employees_arr))
 
     prev_employees = ''
     cnt_employees = ''
