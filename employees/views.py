@@ -30,11 +30,11 @@ def prev_winners(request):
             
             if win_round > last_round:
                 last_round = win_round
-                prev_winners += f'<b>Round {last_round}</b><br><br>'
+                prev_winners += f'<br><br><b>Round: {last_round}</b><br><br>'
             
 
             if prev_w != 'test':
-                prev_winners += f'<b>{prev_w}</b><br>'
+                prev_winners += f'{prev_w}<br>'
 
         prev_winners += f'</p>'
 
