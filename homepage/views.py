@@ -38,7 +38,7 @@ def index(request):
         cnt_employees = request.POST['cnt_employees']
         cnt_employees = int(cnt_employees)
 
-        if cnt_employees > 0
+        if cnt_employees > 0:
 
             if cnt_employees > 25:
                 bad_context = "Оооооочень много счастливчиков"
