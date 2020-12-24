@@ -6,6 +6,7 @@ def index(request):
     prev_employees = ''
     cnt_employees = ''
     new_employees = ''
+    employees = ''
 
 
     for i in range(len(employees_db)):
