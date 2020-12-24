@@ -6,16 +6,25 @@
   <body style="background-color:powderblue;">
       <h1>!!!! Xsolla New Year Random Gift Machine !!!!</h1>
        <!-- img src="https://media.giphy.com/media/y0NFayaBeiWEU/giphy.gif" -->
+      <p>
+        {{ prev_winners | safe }}
+      </p>
+       <br>
        <img src="https://i.ibb.co/WnmdQc4/IMG-7454.jpg">
        <br>
-      <p>
-        {{ prev_employees }}
-      </p>
+
 
 
       <p style="color:red;"><b>
         {{ bad_context }}
       </b></p>
+
+       <br>
+      <p>
+        {{ winners | safe }}
+      </p>
+
+
       <form action="/" method="post">
         <h2>Выберете количество людей для награды</h2>
         <input type="number" id="cnt_employees" name="cnt_employees" required size="20">

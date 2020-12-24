@@ -1,4 +1,5 @@
 from django.shortcuts import render
+import random
 from employees.models import employees_db
 from employees import psql_methods
 
@@ -14,17 +15,20 @@ def index(request):
     cnt_employees = ''
     new_employees = ''
     employees = ''
+    winners = ''
 
     bad_context = ''
+    winners = ''
+    prev_winners = ''
 
-    '''
-    for i in range(len(employees_db)):
-        employee_form = (f'<input type="radio" name="employee" required'
-                    f' value="{employees_db[i]["name"]}">{employees_db[i]["name"]}')
+    prev_employees_arr = psql_methods.prev_employees()
 
-        employee_link = f'<a href="employees/{i}/">Детали</a>'
-        employees += f'{employee_form} | {employee_link} <br>'
-    '''
+    
+    if len(prev_employees_arr) > 0:
+        for prev_w in prev_employees_arr:
+            prev_winners += f'<p><НАШИ СЧАСТЛИВЧИКИ/p> <br>'
+            prev_winners += f'<p><{prev_w}/p> <br>'
+    
 
 
     if request.method == 'POST':
@@ -36,17 +40,27 @@ def index(request):
 
 
         max_round = psql_methods.max_round()
-        prev_employees_arr = psql_methods.prev_employees()
+        new_round = max_round
+        
 
-        print(max_round , prev_employees_arr)
+        round_employees = list(set(employees_arr) - set(prev_employees_arr))
 
+        for i in range(10):
+            random.shuffle(round_employees)
 
+        round_winners = round_employees[:cnt_employees]
+
+        for winner in round_winners:
+            winners += f'<p><ПОБЕДИТЕЛИ РАУНДА!!!!/p> <br>'
+            winners += f'<p><{winner}/p> <br>'
 
 
 
 
     context = {
         'employees': employees,
+        'winners':winners,
+        'prev_winners':prev_winners,
         'prev_employees': prev_employees,
         'cnt_employees': cnt_employees,
         'new_employees': new_employees,
