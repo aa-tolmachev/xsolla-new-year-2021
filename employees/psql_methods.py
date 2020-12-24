@@ -69,3 +69,39 @@ def prev_employees():
 
 
     return prev_employees_arr
+
+#записать победителей
+def insert_round_resunt(round_num , round_winners):
+
+    try:
+        PSQL_heroku_keys = PSQL_heroku_keys_dict()
+
+        #создаем подключение к PSQL
+        conn = psycopg2.connect("dbname='%(dbname)s' port='%(port)s' user='%(user)s' host='%(host)s' password='%(password)s'" % PSQL_heroku_keys)
+
+        # создаем запрос
+        cur = conn.cursor()
+
+
+        #создаем записи победителей
+        sql_insert = "insert into public.xsolla2021 (name,round ) values "
+        for winner in round_winners:
+            sql_insert += f"('{winner}' , {round_num}), "
+        sql_insert = sql_insert[:-2]
+
+        cur.execute(sql_insert)
+        
+        conn.commit()
+
+
+
+        cur.close()
+        conn.close()
+
+        status = 200
+    except:
+        status = 400
+
+
+
+    return status

@@ -56,12 +56,16 @@ def index(request):
                 random.shuffle(round_employees)
 
             round_winners = round_employees[:cnt_employees]
+            insert_status = psql_methods.insert_round_resunt(new_round , round_winners)
+            print('=================ROUND WINNERS',insert_status, round_winners)
 
             winners += f'<p><b>ПОБЕДИТЕЛИ РАУНДА!!!!</b></p>'
             winners += f'<p  style="font-size:40px;">'
             for winner in round_winners:
                 winners += f'<b>{winner}</b><br>'
             winners += f'</p>'
+
+
 
 
 
