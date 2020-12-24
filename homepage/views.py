@@ -22,12 +22,13 @@ def index(request):
     prev_winners = ''
 
     prev_employees_arr = psql_methods.prev_employees()
+    print('1----',prev_employees_arr)
 
     
     if len(prev_employees_arr) > 0:
+        prev_winners += f'<p><НАШИ СЧАСТЛИВЧИКИ</p> <br>'
         for prev_w in prev_employees_arr:
-            prev_winners += f'<p><НАШИ СЧАСТЛИВЧИКИ/p> <br>'
-            prev_winners += f'<p><{prev_w}/p> <br>'
+            prev_winners += f'<p>{prev_w}</p> <br>'
     
 
 
@@ -43,7 +44,7 @@ def index(request):
         new_round = max_round
         
 
-        round_employees = list(set(employees_arr) - set(prev_employees_arr))
+        round_employees = list(set(all_employees_arr) - set(prev_employees_arr))
 
         for i in range(10):
             random.shuffle(round_employees)
