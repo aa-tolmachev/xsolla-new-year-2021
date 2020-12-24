@@ -13,16 +13,13 @@
       </p>
 
 
-
-
       <form action="/" method="post">
-        <h2>Выберете количество людей для награды</h2>
-        <input type="number" id="cnt_employees" name="cnt_employees" required size="20">
-        <br>
-        <br>
-        <input type="submit" value="Запустить шарманку">
-      </form>
 
+        <h2>Выберите сотрудника</h2>
+          {{ employees|safe }}
+        <br>
+        <input type="submit" value="Узнать детали">
+      </form>
 
   </body>
 </html>
